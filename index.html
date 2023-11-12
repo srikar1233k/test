@@ -13,7 +13,7 @@
         }
 
         #pdf-viewer {
-            width: 100%;
+            width: 95%;
             height: 100vh;
             border: none;
         }
@@ -30,7 +30,9 @@
             // If a valid PDF link is provided, embed it in the iframe
             if (pdfLink && pdfLink.endsWith('.pdf')) {
                 const iframe = document.createElement('iframe');
-                iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfLink)}&embedded=true`;
+                iframe.src = pdfLink;
+                iframe.width = '99%';
+                iframe.frameborder = '0';
                 iframe.id = 'pdf-viewer';
                 document.body.appendChild(iframe);
             } else {
@@ -41,8 +43,3 @@
     </script>
 </body>
 </html>
-
-    </script>
-</body>
-</html>
-
