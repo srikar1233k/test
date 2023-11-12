@@ -15,7 +15,6 @@
         #pdf-viewer {
             width: 100%;
             height: 100vh;
-            border: none;
         }
     </style>
 </head>
@@ -27,12 +26,15 @@
             const urlParams = new URLSearchParams(queryString);
             const pdfLink = urlParams.get('pdf');
 
-            // If a valid PDF link is provided, embed it in the iframe
+            // If a valid PDF link is provided, embed it using the object tag
             if (pdfLink && pdfLink.endsWith('.pdf')) {
-                const iframe = document.createElement('iframe');
-                iframe.src = pdfLink;
-                iframe.id = 'pdf-viewer';
-                document.body.appendChild(iframe);
+                const pdfViewer = document.createElement('object');
+                pdfViewer.type = 'application/pdf';
+                pdfViewer.data = pdfLink;
+                pdfViewer.width = '100%';
+                pdfViewer.height = '100%';
+                pdfViewer.id = 'pdf-viewer';
+                document.body.appendChild(pdfViewer);
             } else {
                 // Display a message if the PDF link is not provided or invalid
                 document.body.innerHTML = '<h2>Please provide a valid PDF link in the query string.</h2>';
@@ -41,3 +43,4 @@
     </script>
 </body>
 </html>
+
