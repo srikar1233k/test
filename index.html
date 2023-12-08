@@ -1,45 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Viewer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        #pdf-viewer {
-            width: 95%;
-            height: 100vh;
-            border: none;
-        }
-    </style>
-</head>
-<body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get the PDF link from the query string
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const pdfLink = urlParams.get('pdf');
-
-            // If a valid PDF link is provided, embed it in the iframe
-            if (pdfLink && pdfLink.endsWith('.pdf')) {
-                const iframe = document.createElement('iframe');
-                iframe.src = pdfLink;
-                iframe.width = '99%';
-                iframe.frameborder = '0';
-                iframe.id = 'pdf-viewer';
-                document.body.appendChild(iframe);
-            } else {
-                // Display a message if the PDF link is not provided or invalid
-                document.body.innerHTML = '<h2>Please provide a valid PDF link in the query string.</h2>';
-            }
-        });
-    </script>
-</body>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <iframe src="https://drive.google.com/file/d/1pgOtbMwX4MueZGRkEWZd2JvtaelKnMh4/preview" width="640" height="480" allow="autoplay"></iframe>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
 </html>
